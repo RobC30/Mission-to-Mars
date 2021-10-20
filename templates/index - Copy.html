@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission to Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+    <div class="container">
+        <!-- ADD JUMBOTRON  TO HEADER -->
+        <div class='jumbotron text-center'>
+            <!-- ADD HEADER + SCRAPING BUTTON-->
+            <h1> Mission to Mars</h1>
+            <p><a class ='btn btn-primary btn-lg' href = '/scrape'
+                role = 'button'>Scrape New Data</a></p>
+        </div>
+        <!-- ADD MARS NEWS SEGMENT-->
+        <div class='row' id = 'mars-news'>
+            <div class ='col-md-12'>
+                <!-- ADD MEDIA + BODY -->
+                <div class = 'media'>
+                    <div class = 'media body'>
+                        <h2>Latest News</h2>
+                        <!-- incoporate FLASK -->
+                        <h4 class='media-heading'>{{mars.news_title}}</h4>
+                        <p>{{ mars.news_paragraph }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- add IMAGE + FACTS -->
+        <div class='row' id='mars-featured-image'>
+            <div class='col-md-8'>
+                <!-- IMAGE -->
+                <h2>Featured Mars Image</h2>
+                <img src='{{mars.featured_image}}' class='img-reponsive' alt='Responsive image'/>
+            </div>
+            <!-- FACTS -->
+            <div class='col-md-4'>
+                <h4>Mars Facts</h4>
+                {{mars.facts | safe }}
+            </div>
+        </div>
+    </div>   
+</body>
+</html>
